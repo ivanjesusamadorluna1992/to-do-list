@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8"><!-- se utiliza para asignar valores a propiedades de un documento(por ej., descripción del documento, autor, palabras claves, idioma del documento, etc.).-->
+  <title>Todo list with AngularJS</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"><!--La etiqueta <link> define un enlace entre el documento y algún recurso externo.
+El elemento link debe ser ubicado en la sección head del documento.-->
+    
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body><!--La etiqueta <body> define el cuerpo de un documento.
+Dentro del cuerpo del documento se incluye todo el contenido del mismo, por ej. textos, enlaces, imágenes, tablas, etc.-->
+    
+  <html ng-app><!--La directiva ng-app indica a AngularJS que éste es el elemento raíz de la aplicación AngularJS.
+
+Todas las aplicaciones de AngularJS deben tener un elemento raíz.-->
+      
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script><!-- Especifica el URL de un archivo script externo .-->
+    <script src="//use.edgefonts.net/vast-shadow:n4:all.js"></script>
+    <script src="//use.edgefonts.net/vast-shadow:n4:all;megrim.js"></script>
+  </head>
+  <body> <!-- Aquí el encabezado -->
+    <div class="todo-wrapper" ng-controller="TodoCtrl">
+      <h2>You've got <span class="emphasis">{{getTotalTodos()}}</span> things to do</h2>
+      <ul> <!-- La etiqueta <ul> se utiliza para crear una lista desordenada.-->
+        <li ng-repeat="todo in todos">
+          <input type="checkbox" ng-model="todo.done"/><!--Especifica el tipo de control a crear.-->
+          <span class="done-{{todo.done}}">{{todo.text}}</span>
+        </li>
+      </ul> 
+      <form><!-- La etiqueta <form> se utiliza para crear un formulario que le permita al usuario ingresar datos. -->
+        <input class="add-input" placeholder="I need to..." type="text" ng-model="formTodoText" ng-model-instant />
+        <button class="add-btn" ng-click="addTodo()"><h2>Add</h2></button><!-- Boton que guarda los datos-->
+      </form>
+      
+      <button class="clear-btn" ng-click="clearCompleted()">Clear completed</button><!-- botón que elimina datos-->
+    </div>
+  </body>
+  
+</html>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js'></script>
+
+    <script src="js/index.js"></script>
+
+</body>
+</html>
